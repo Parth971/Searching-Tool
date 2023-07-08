@@ -1,72 +1,27 @@
 
-# Scraping Website
+# Searching Tool
 
-Scraping website is to search through huge amount of data. The data is scraped from 44 websites mentioned below. 
+Searching Tool is a DRF-based project to search through huge amounts of data. The data is scraped from websites. 
 
 
+### Project description
 
-### 44 Websites
+First, the data is scrapped from multiple websites and stored in an SQL database (Postgres).
+Now, To search through such a huge amount of data, we used `elasticsearch`.
 
-1. [Advanced Procurement for Universities and Colleges (APUC)](http://www.apuc-scot.ac.uk/)
-2. [Crescent Purchasing Consortium (CPC)](https://www.thecpc.ac.uk/)
-3. [Crown Commercial Service (CCS)](https://www.crowncommercial.gov.uk/)
-4. [Dep of Finance](https://www.finance-ni.gov.uk/topics/procurement)
-5. [East of England NHS Collaborative Procurement Hub](https://www.eoecph.nhs.uk/)
-6. [Eastern Procurement](https://eastern-procurement.co.uk/)
-7. [EN:Procure Ltd](https://www.efficiencynorth.org/procure)
-8. [ESPO, formally the Eastern Shires Purchasing Organisation,](https://www.espo.org/)
-9. [Fusion21 Members Consortium](https://www.fusion21.co.uk/)
-10. [Grand Union Housing Group](https://www.guhg.co.uk/)
-11. [Hampshire County Council](https://www.hants.gov.uk/business/procurement)
-12. [HSC Business Services Organisation](https://hscbusiness.hscni.net/)
-13. [KCS,](https://www.kcs.co.uk/)
-14. [London Uni's Purchasing Consortium](https://www.lupc.ac.uk/)
-15. [National Procurement Service](https://gov.wales/national-procurement-service)
-16. [NEPO, the North East Purchasing Organisation,](https://www.nepo.org/)
-17. [NEUPC, the North Eastern Universities Purchasing Consortium](https://neupc.ac.uk/ )
-18. [NHS London Procurement Partnership](https://www.lpp.nhs.uk/ )
-19. [NHS National Services Scotland](https://www.nss.nhs.scot/)
-20. [NHS North of England Commercial Procurement Collaborative (NOE CPC, based in Sheffield)](https://www.noecpc.nhs.uk/)
-21. [NHS Shared Business Services (NHS SBS)](https://www.sbs.nhs.uk/ )
-22. [NHS Supply Chain](https://www.supplychain.nhs.uk/ )
-23. [NHS Wales SPS](https://nwssp.nhs.wales/ )
-24. [North and Mid Wales Trunk Road Agent](https://traffic.wales/north-and-mid-wales-trunk-road-agent-nmwtra )
-25. [NWUPC, the North Western Universities Purchasing Consortium](https://www.nwupc.ac.uk/ )
-26. [Pagabo](https://www.pagabo.co.uk/ )
-27. [Places for People](https://www.placesforpeople.co.uk/ )
-28. [Procure Partnerships](https://procurepartnerships.co.uk/ )
-29. [Procurement Hub](https://www.procurementhub.co.uk/ )
-30. [Scape](https://www.scape.co.uk/ )
-31. [Public Contracts Scotland](https://www.publiccontractsscotland.gov.uk/Search/Search_MainPage.aspx)
-32. [Scotland Excel](https://www.scotland-excel.org.uk/ )
-33. [SUPC, the Southern Universities Purchasing Consortium](https://www.supc.ac.uk/ )
-34. [TEC, the Energy Consortium](https://www.tec.ac.uk/ )
-35. [The Higher Education Purchasing Consortium, (HEPCW)](http://www.hepcw.ac.uk/ )
-36. [The Northern Ireland Government's Construction and Procurement Delivery (CPD) Collaborative Procurement Team](https://www.finance-ni.gov.uk/construction-procurement-delivery)
-37. [TUCO, The University Caterers Organisation](https://www.tuco.ac.uk/ )
-38. [WECA, the West of England Combined Authority](https://www.westofengland-ca.gov.uk/)
-39. [YPO Yorkshire Purchasing Organisation](https://www.ypo.co.uk/ )
-40. [Contracts Finder](https://www.gov.uk/contracts-finder )
-41. [London Construction Parntership ](https://londonconstructionprogramme.co.uk/)
-42. [Health Trust Europe](https://www.healthtrusteurope.com/ )
-### Project desciption
-
-First the data is scrapped from these 44 websites and stored in SQl database (postgres). Scrapper related code is present in `/scrapers` folder.
-Now, for searching through this saved data, we use a website with `ReactJS-DRF` as our stack. For searching in such huge amount of data, we use `elasticsearch`.
-Website related code is located at `/web`.
 
 ## Project Setup
 
 Python Version: 3.10.6
 
-Assumption: Project is cloned, and current working directory in terminal/cmd is `/web`.
+Assumption: The project is cloned, and the current working directory in terminal/cmd is `/Searching-Tool`.
 
 
 ### Set Python Virtual Environment (recommended)
 
 Install [Python Virtual Environment](https://www.geeksforgeeks.org/creating-python-virtual-environment-windows-linux/)
 
-To Activate virtual environment
+To Activate the virtual environment
 
 For Linux
 
@@ -83,7 +38,7 @@ For Windows
 
 ### Create Environment
 
-Create `.env` file
+Create a `.env` file
 
     # For Linux
     cp sample_env.txt .env
@@ -91,7 +46,7 @@ Create `.env` file
     # For Windows
     copy sample_env.txt .env
 
-Change environment variables in `.env` file
+Change environment variables in the `.env` file
 
 #### Variables Description
 
@@ -100,7 +55,7 @@ Change environment variables in `.env` file
 - `REFRESH_TOKEN_LIFETIME`: `86400` # This value represent amount of time(in sec) to expire after creation of refresh_token
 - `FRONT_END_DOMAIN`: `http://localhost:3000` # This variable is used for creating links in send_email functionality
 - `BACK_END_DOMAIN`: `http://localhost:8000` # This variable is used for creating links in send_email functionality
-- `PASSWORD_RESET_TIMEOUT`: `60` # This value represents amount of time(in sec) to expire after creation, Using PasswordResetTokenGenerator (Used in Forgotpassword Api)
+- `PASSWORD_RESET_TIMEOUT`: `60` # This value represents the amount of time(in seconds) to expire after creation, Using PasswordResetTokenGenerator (Used in Forgotpassword Api)
 - `INQUIRY_EMAIL`: `sending@fake.com` # This email will receive inquiry emails
 - `DB_NAME`: `database_name`
 - `DB_USER`: `database_user_name`
@@ -118,18 +73,20 @@ Change environment variables in `.env` file
 
 ### Database Migrations
 
-Run below commands to create tables in database
+Run the below commands to create tables in the database
 
     python manage.py makemigrations
     python manage.py migrate
 
+
 ### Run elasticsearch
     
-    # To do
+    Follow steps in [Guide](https://www.elastic.co/guide/en/elasticsearch/reference/current/run-elasticsearch-locally.html)
+
 
 ### Run Server
 
-To run Local Development Server, run below cmd
+To run Local Development Server, run the below cmd
 
     python manage.py runserver
 
@@ -170,7 +127,7 @@ Run below command
 
 ### Delete Document from Elasticsearch by Id
 
-Run below command
+Run the below command
     
     python manage.py deletedocuments 32929 92828 58593
 
