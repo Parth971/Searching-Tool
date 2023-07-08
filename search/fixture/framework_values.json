@@ -1,0 +1,20 @@
+[
+  {
+    "value": "Greater than 500 Million",
+    "minimum_value": 500000000
+  },
+  {
+    "value": "100 - 200 Million",
+    "minimum_value": 100000000,
+    "maximum_value": 200000000
+  },
+  {
+    "value": "200 - 500 Million",
+    "minimum_value": 200000000,
+    "maximum_value": 500000000
+  },
+  {
+    "value": "less than 100 Million",
+    "maximum_value": 100000000
+  }
+]

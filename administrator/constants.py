@@ -1,0 +1,2 @@
+MONTHLY = 'monthly'
+YEARLY = 'yearly'

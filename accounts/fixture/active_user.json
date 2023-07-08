@@ -1,0 +1,23 @@
+[
+  {
+    "model": "accounts.user",
+    "fields": {
+      "password": "pbkdf2_sha256$390000$xz59KTaDVYaV1COR8Tei3C$qVmlsKBwxaK5Ozab7a0s1RK55W9sguF7z4Qv6Gn9N9g=",
+      "last_login": null,
+      "is_superuser": false,
+      "first_name": "Parth",
+      "last_name": "Desai",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-05-03T11:49:31.240Z",
+      "email": "parth12@parth.com",
+      "job_title": "Job 1",
+      "company_name": "Company 1",
+      "mobile_number": "+619924503860",
+      "profile_pic": "",
+      "is_survey_completed": true,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
